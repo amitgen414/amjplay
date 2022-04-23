@@ -1,0 +1,1 @@
+# This is root website for [amjplay.com](https://amjplay.com)
