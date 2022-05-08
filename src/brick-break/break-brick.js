@@ -1,5 +1,7 @@
+import {loadCookiePrivacyPolicy} from "../common/load-privacy-policy";
 import "./break-brick.css";
 
+loadCookiePrivacyPolicy();
 
 const brickBlast = (function () {
  let ns = {};
@@ -43,6 +45,12 @@ const brickBlast = (function () {
   cv.addEventListener("mousemove", (e) => {
    paddlex = (e.clientX / xratio) - (paddleLength / 2);
   }, false);
+  cv.addEventListener("touchmove", (e) => {
+   e.preventDefault();
+   var touch = e.touches[0];
+   paddlex = (touch.clientX / xratio) - (paddleLength / 2);
+  }, false);
+
   ns.setBallSpeed();
   ns.constructBricks();
   ns.drawFrames();
