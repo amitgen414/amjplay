@@ -4,6 +4,7 @@ import "./break-brick.css";
 loadCookiePrivacyPolicy();
 
 const brickBlast = (function () {
+ const font = "system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, Liberation Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji";
  let ns = {};
  const SCORE_KEY = "totalScore";
  const LEVEL_KEY = "level";
@@ -76,7 +77,7 @@ const brickBlast = (function () {
  }
 
  ns.drawNotification = (message, color = "#ffffff", y = cv.height / 2) => {
-  ctx.font = "25px Circular";
+  ctx.font = `25px ${font}`;
   ctx.fillStyle = color;
   const measure = ctx.measureText(message);
   ctx.fillText(message, (cv.width - measure.width) / 2, y);
@@ -93,7 +94,7 @@ const brickBlast = (function () {
  }
 
  ns.drawScore = () => {
-  ctx.font = "25px Circular";
+  ctx.font = `25px ${font}`;
   ctx.fillStyle = "#39ff14";
   const scoresText = `Scores: L: ${levelScore}  T: ${scrVal}`;
   const scoreX = cv.width - ctx.measureText(scoresText).width - 10;
